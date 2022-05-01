@@ -7,21 +7,27 @@
 
 import UIKit
 
-class CompanyController: UIViewController {
+class CompanyController: UITableViewController {
 
     class CompanyControllerUIModel {
         let title:String = "Companies"
         let navgationBarBackgroundColor:UIColor = .systemRed
         let isPreferLargeTitle:Bool = true
-        let LargeTitleAttribute:[NSAttributedString.Key: Any] = [
+        let largeTitleAttribute:[NSAttributedString.Key: Any] = [
             .font: UIFont.MontserratAlternatesBold(32),
             .foregroundColor: UIColor.white
+        ]
+        let normalTitleAttribute: [NSAttributedString.Key: Any] = [
+            .font: UIFont.MontserratAlternatesSemibold(20),
+            .foregroundColor:UIColor.white
         ]
         
         let addBarButtonItemImage: UIImage = UIImage(systemName: "plus.app.fill",
                                                      withConfiguration: UIImage.SymbolConfiguration.init(pointSize: 28, weight: .bold, scale: .large))!
             .withRenderingMode(.alwaysTemplate)
         let addBarButtonItemTinitColor: UIColor = .white
+        let tableViewBackgroundColor: UIColor = UIColor.init(red: 9 / 255, green: 45 / 255, blue: 64 / 255,alpha: 1)
+        let tableViewSeparatorStyle: UITableViewCell.SeparatorStyle = .none
     }
     
     //MARK: - Model
@@ -61,18 +67,21 @@ extension CompanyController {
 //MARK: - Setup
 extension CompanyController {
     private func setupViews() {
-        view.backgroundColor = .systemBlue
         setupNavigationBar(with: UIModel.title,
                            backgroundColor: UIModel.navgationBarBackgroundColor,
                            isLargeTitle: UIModel.isPreferLargeTitle,
-                           largeTitleAttribute: UIModel.LargeTitleAttribute)
+                           largeTitleAttribute: UIModel.largeTitleAttribute,
+                           normalTitleAttribute: UIModel.normalTitleAttribute)
         setupNavigationItem(with: UIModel.addBarButtonItemImage, tintColor: UIModel.addBarButtonItemTinitColor)
+        setupTableView(with: UIModel.tableViewBackgroundColor,
+                       separateStyle: UIModel.tableViewSeparatorStyle)
     }
     
     private func setupNavigationBar(with title:String,
                                     backgroundColor: UIColor,
                                     isLargeTitle:Bool,
-                                    largeTitleAttribute:[NSAttributedString.Key: Any]) {
+                                    largeTitleAttribute:[NSAttributedString.Key: Any],
+                                    normalTitleAttribute:[NSAttributedString.Key: Any]) {
         navigationItem.title = title
         navigationController?.navigationBar.prefersLargeTitles = isLargeTitle
         navigationItem.largeTitleDisplayMode = isLargeTitle == true ? .always : .automatic
@@ -81,6 +90,7 @@ extension CompanyController {
         appearance.backgroundEffect = nil // blur
         appearance.shadowImage = UIImage()
         appearance.largeTitleTextAttributes = largeTitleAttribute
+        appearance.titleTextAttributes = normalTitleAttribute
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         if #available(iOS 15.0, *) {
@@ -93,6 +103,12 @@ extension CompanyController {
         let addBarButton = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(addBarButtonTapped(_:)))
         addBarButton.tintColor = tintColor
         navigationItem.rightBarButtonItem = addBarButton
+    }
+    
+    private func setupTableView(with backgroundColor: UIColor,
+                                separateStyle:UITableViewCell.SeparatorStyle) {
+        tableView.backgroundColor = backgroundColor
+        tableView.separatorStyle = separateStyle
     }
 }
 
