@@ -38,6 +38,7 @@
 		410308F3281E505D00172DAD /* PWCShadowHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410308E1281E505D00172DAD /* PWCShadowHelper.swift */; };
 		410308F7281E505D00172DAD /* PWCFontHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410308E9281E505D00172DAD /* PWCFontHelper.swift */; };
 		410308FC281E534B00172DAD /* LightContentNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410308FB281E534B00172DAD /* LightContentNavigationController.swift */; };
+		414A5F0A281FD279008ED4FA /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414A5F09281FD279008ED4FA /* Company.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		410308E1281E505D00172DAD /* PWCShadowHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PWCShadowHelper.swift; sourceTree = "<group>"; };
 		410308E9281E505D00172DAD /* PWCFontHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PWCFontHelper.swift; sourceTree = "<group>"; };
 		410308FB281E534B00172DAD /* LightContentNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightContentNavigationController.swift; sourceTree = "<group>"; };
+		414A5F09281FD279008ED4FA /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,9 +235,34 @@
 		410308FD281E568600172DAD /* Company */ = {
 			isa = PBXGroup;
 			children = (
-				41030897281E4AFC00172DAD /* CompanyController.swift */,
+				414A5F0B281FD2F8008ED4FA /* Views */,
+				414A5F08281FD26F008ED4FA /* Model */,
+				414A5F07281FD268008ED4FA /* Controller */,
 			);
 			path = Company;
+			sourceTree = "<group>";
+		};
+		414A5F07281FD268008ED4FA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				41030897281E4AFC00172DAD /* CompanyController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		414A5F08281FD26F008ED4FA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				414A5F09281FD279008ED4FA /* Company.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		414A5F0B281FD2F8008ED4FA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,6 +358,7 @@
 				410308F0281E505D00172DAD /* PWCScreenConstants.swift in Sources */,
 				41030898281E4AFC00172DAD /* CompanyController.swift in Sources */,
 				410308F1281E505D00172DAD /* PWCColorHelper.swift in Sources */,
+				414A5F0A281FD279008ED4FA /* Company.swift in Sources */,
 				410308F7281E505D00172DAD /* PWCFontHelper.swift in Sources */,
 				410308EA281E505D00172DAD /* PWCImageViewHelpr.swift in Sources */,
 				410308FC281E534B00172DAD /* LightContentNavigationController.swift in Sources */,
