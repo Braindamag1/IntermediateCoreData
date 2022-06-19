@@ -38,7 +38,9 @@
 		410308F3281E505D00172DAD /* PWCShadowHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410308E1281E505D00172DAD /* PWCShadowHelper.swift */; };
 		410308F7281E505D00172DAD /* PWCFontHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410308E9281E505D00172DAD /* PWCFontHelper.swift */; };
 		410308FC281E534B00172DAD /* LightContentNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410308FB281E534B00172DAD /* LightContentNavigationController.swift */; };
+		413B2985285F4F010093A89B /* CreateComanyInputeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413B2984285F4F010093A89B /* CreateComanyInputeCell.swift */; };
 		414A5F0A281FD279008ED4FA /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414A5F09281FD279008ED4FA /* Company.swift */; };
+		414A5F0D281FDC82008ED4FA /* CreateCompanyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414A5F0C281FDC82008ED4FA /* CreateCompanyController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,7 +77,9 @@
 		410308E1281E505D00172DAD /* PWCShadowHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PWCShadowHelper.swift; sourceTree = "<group>"; };
 		410308E9281E505D00172DAD /* PWCFontHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PWCFontHelper.swift; sourceTree = "<group>"; };
 		410308FB281E534B00172DAD /* LightContentNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightContentNavigationController.swift; sourceTree = "<group>"; };
+		413B2984285F4F010093A89B /* CreateComanyInputeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateComanyInputeCell.swift; sourceTree = "<group>"; };
 		414A5F09281FD279008ED4FA /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
+		414A5F0C281FDC82008ED4FA /* CreateCompanyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCompanyController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,7 +222,7 @@
 		410308F9281E531900172DAD /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				410308FD281E568600172DAD /* Company */,
+				413B297E285F442C0093A89B /* Home */,
 				410308FA281E532600172DAD /* Navigation */,
 			);
 			path = Modules;
@@ -240,6 +244,56 @@
 				414A5F07281FD268008ED4FA /* Controller */,
 			);
 			path = Company;
+			sourceTree = "<group>";
+		};
+		413B297E285F442C0093A89B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				413B297F285F44350093A89B /* CreateCompany */,
+				410308FD281E568600172DAD /* Company */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		413B297F285F44350093A89B /* CreateCompany */ = {
+			isa = PBXGroup;
+			children = (
+				413B2983285F444D0093A89B /* View */,
+				413B2982285F44480093A89B /* Model */,
+				413B2981285F44440093A89B /* ViewModel */,
+				413B2980285F443F0093A89B /* Controller */,
+			);
+			path = CreateCompany;
+			sourceTree = "<group>";
+		};
+		413B2980285F443F0093A89B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				414A5F0C281FDC82008ED4FA /* CreateCompanyController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		413B2981285F44440093A89B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		413B2982285F44480093A89B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		413B2983285F444D0093A89B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				413B2984285F4F010093A89B /* CreateComanyInputeCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		414A5F07281FD268008ED4FA /* Controller */ = {
@@ -357,6 +411,8 @@
 			files = (
 				410308F0281E505D00172DAD /* PWCScreenConstants.swift in Sources */,
 				41030898281E4AFC00172DAD /* CompanyController.swift in Sources */,
+				414A5F0D281FDC82008ED4FA /* CreateCompanyController.swift in Sources */,
+				413B2985285F4F010093A89B /* CreateComanyInputeCell.swift in Sources */,
 				410308F1281E505D00172DAD /* PWCColorHelper.swift in Sources */,
 				414A5F0A281FD279008ED4FA /* Company.swift in Sources */,
 				410308F7281E505D00172DAD /* PWCFontHelper.swift in Sources */,

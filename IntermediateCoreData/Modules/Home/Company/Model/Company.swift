@@ -7,6 +7,7 @@
 
 import Foundation
 
-struct Company {
+struct Company:Hashable {
     let name:String
+    let founded: Date
 }

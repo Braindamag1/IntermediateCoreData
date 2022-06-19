@@ -32,13 +32,25 @@ class CompanyController: UITableViewController {
         let cellFont: UIFont = UIFont.MontserratAlternatesSemibold(16)
         let cellTextColor: UIColor = .white
         let headerColor: UIColor = UIColor(red: 218 / 255, green: 235 / 255, blue: 243 / 255, alpha: 1)
-        let headerHeight:CGFloat = 50
+        let headerHeight: CGFloat = 50
         let cellID = "CompanyCellID"
     }
 
     // MARK: - Model
 
+    enum Section {
+        case main
+    }
+
+    typealias DataSource = UITableViewDiffableDataSource<Section, Company>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Company>
+    private lazy var dataSource: DataSource = makeDataSource()
     let UIModel: CompanyControllerUIModel = .init()
+    var companies: [Company] = [
+        .init(name: "Apple", founded: Date()),
+        .init(name: "Facebook", founded: Date()),
+        .init(name: "Google", founded: Date())
+    ]
 }
 
 // MARK: - LifeCycle
@@ -47,6 +59,7 @@ extension CompanyController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        applyInitialSnapshot()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -93,12 +106,14 @@ extension CompanyController {
         navigationItem.title = title
         navigationController?.navigationBar.prefersLargeTitles = isLargeTitle
         navigationItem.largeTitleDisplayMode = isLargeTitle == true ? .always : .automatic
+        navigationItem.backButtonDisplayMode = .minimal
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = backgroundColor
         appearance.backgroundEffect = nil // blur
         appearance.shadowImage = UIImage()
         appearance.largeTitleTextAttributes = largeTitleAttribute
         appearance.titleTextAttributes = normalTitleAttribute
+        navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         if #available(iOS 15.0, *) {
@@ -121,39 +136,46 @@ extension CompanyController {
         tableView.separatorColor = separatorColor
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: UIModel.cellID)
         if #available(iOS 15.0, *) {
-            tableView.sectionHeaderTopPadding = 0 //iOS 15 默认下移 22 pt
+            tableView.sectionHeaderTopPadding = 0 // iOS 15 默认下移 22 pt
         }
     }
 }
 
-// MARK: - DataSource
+// MARK: - TableView
 
 extension CompanyController {
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        8
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: UIModel.cellID, for: indexPath)
-        var backgroundConfig = cell.backgroundConfiguration
-        backgroundConfig?.backgroundColor = UIModel.cellColor
-        var contentConfig = cell.defaultContentConfiguration()
-        contentConfig.attributedText = NSAttributedString(string: "Company \(indexPath)",
-                                                          attributes: [
-                                                              .font: UIModel.cellFont,
-                                                              .foregroundColor: UIModel.cellTextColor,
-                                                          ])
-        cell.contentConfiguration = contentConfig
-        cell.backgroundConfiguration = backgroundConfig
-        return cell
+    private func makeDataSource() -> DataSource {
+        .init(tableView: tableView) { [weak self] tableView, indexPath, item in
+            guard let self = self else { return nil }
+            let cell = tableView.dequeueReusableCell(withIdentifier: self.UIModel.cellID, for: indexPath)
+            var backgroundConfig = cell.backgroundConfiguration
+            backgroundConfig?.backgroundColor = self.UIModel.cellColor
+            var contentConfig = cell.defaultContentConfiguration()
+            contentConfig.attributedText = NSAttributedString(string: item.name,
+                                                              attributes: [
+                                                                  .font: self.UIModel.cellFont,
+                                                                  .foregroundColor: self.UIModel.cellTextColor,
+                                                              ])
+            cell.contentConfiguration = contentConfig
+            cell.backgroundConfiguration = backgroundConfig
+            return cell
+        }
     }
     
+    private func applyInitialSnapshot() {
+        var snapshot = Snapshot()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(companies,toSection: .main)
+        dataSource.apply(snapshot,animatingDifferences: false)
+    }
+
+
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
         view.backgroundColor = UIModel.headerColor
         return view
     }
-    
+
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         UIModel.headerHeight
     }
@@ -163,5 +185,15 @@ extension CompanyController {
 
 extension CompanyController {
     @objc func addBarButtonTapped(_ sender: UIBarButtonItem) {
+        let creatCompanyController = CreateCompanyController()
+        navigationController?.pushViewController(creatCompanyController, animated: true)
+    }
+}
+
+
+//MARK: - Interface
+extension CompanyController {
+    func getDataSource()->[Company] {
+        return dataSource.snapshot().itemIdentifiers
     }
 }
