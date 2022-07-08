@@ -42,6 +42,7 @@
 		414A5F0A281FD279008ED4FA /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414A5F09281FD279008ED4FA /* Company.swift */; };
 		414A5F0D281FDC82008ED4FA /* CreateCompanyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414A5F0C281FDC82008ED4FA /* CreateCompanyController.swift */; };
 		41756CCB287835490033F672 /* IntermediateCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 41756CC9287835490033F672 /* IntermediateCoreDataModel.xcdatamodeld */; };
+		41756CCE287853EC0033F672 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41756CCD287853EC0033F672 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		414A5F09281FD279008ED4FA /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		414A5F0C281FDC82008ED4FA /* CreateCompanyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCompanyController.swift; sourceTree = "<group>"; };
 		41756CCA287835490033F672 /* IntermediateCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IntermediateCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		41756CCD287853EC0033F672 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				41756CC9287835490033F672 /* IntermediateCoreDataModel.xcdatamodeld */,
+				41756CCC287853D10033F672 /* Utility */,
 				410308F9281E531900172DAD /* Modules */,
 				410308F8281E52D800172DAD /* Others */,
 				410308CF281E505D00172DAD /* Helpers */,
@@ -322,6 +325,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		41756CCC287853D10033F672 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				41756CCD287853EC0033F672 /* CoreDataManager.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -424,6 +435,7 @@
 				410308FC281E534B00172DAD /* LightContentNavigationController.swift in Sources */,
 				41030894281E4AFC00172DAD /* AppDelegate.swift in Sources */,
 				410308F3281E505D00172DAD /* PWCShadowHelper.swift in Sources */,
+				41756CCE287853EC0033F672 /* CoreDataManager.swift in Sources */,
 				41030896281E4AFC00172DAD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
