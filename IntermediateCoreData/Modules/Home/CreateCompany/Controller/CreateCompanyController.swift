@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class CreateCompanyController: UITableViewController {
     class CreateCompanyControllerUIModel {
@@ -127,11 +128,26 @@ extension CreateCompanyController {
 }
 
 
+
 extension CreateCompanyController: CreateComanyInputeCellDelegate {
     func updateCategoryValue(category: Category) {
         if let index = modelArray.firstIndex(where: {$0.title == category.title}) {
             modelArray[index] = category
             print(category)
         }
+    }
+}
+
+//MARK: - Helper
+extension CreateCompanyController {
+    private func initializeCoreDataStack() {
+        let persistentContainer = NSPersistentContainer(name: "IntermediateCoreDataModel")
+        persistentContainer.loadPersistentStores { storeDescription, error in
+            if let error = error {
+                fatalError("Loading of store failed \(error)")
+            }
+        }
+        let context = persistentContainer.viewContext
+        let comany = NSEntityDescription.insertNewObject(forEntityName: "CDCompany", into: context)
     }
 }

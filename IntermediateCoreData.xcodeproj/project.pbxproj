@@ -41,6 +41,7 @@
 		413B2985285F4F010093A89B /* CreateComanyInputeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413B2984285F4F010093A89B /* CreateComanyInputeCell.swift */; };
 		414A5F0A281FD279008ED4FA /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414A5F09281FD279008ED4FA /* Company.swift */; };
 		414A5F0D281FDC82008ED4FA /* CreateCompanyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414A5F0C281FDC82008ED4FA /* CreateCompanyController.swift */; };
+		41756CCB287835490033F672 /* IntermediateCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 41756CC9287835490033F672 /* IntermediateCoreDataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		413B2984285F4F010093A89B /* CreateComanyInputeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateComanyInputeCell.swift; sourceTree = "<group>"; };
 		414A5F09281FD279008ED4FA /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		414A5F0C281FDC82008ED4FA /* CreateCompanyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCompanyController.swift; sourceTree = "<group>"; };
+		41756CCA287835490033F672 /* IntermediateCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IntermediateCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 		41030892281E4AFC00172DAD /* IntermediateCoreData */ = {
 			isa = PBXGroup;
 			children = (
+				41756CC9287835490033F672 /* IntermediateCoreDataModel.xcdatamodeld */,
 				410308F9281E531900172DAD /* Modules */,
 				410308F8281E52D800172DAD /* Others */,
 				410308CF281E505D00172DAD /* Helpers */,
@@ -413,6 +416,7 @@
 				41030898281E4AFC00172DAD /* CompanyController.swift in Sources */,
 				414A5F0D281FDC82008ED4FA /* CreateCompanyController.swift in Sources */,
 				413B2985285F4F010093A89B /* CreateComanyInputeCell.swift in Sources */,
+				41756CCB287835490033F672 /* IntermediateCoreDataModel.xcdatamodeld in Sources */,
 				410308F1281E505D00172DAD /* PWCColorHelper.swift in Sources */,
 				414A5F0A281FD279008ED4FA /* Company.swift in Sources */,
 				410308F7281E505D00172DAD /* PWCFontHelper.swift in Sources */,
@@ -640,6 +644,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		41756CC9287835490033F672 /* IntermediateCoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				41756CCA287835490033F672 /* IntermediateCoreDataModel.xcdatamodel */,
+			);
+			currentVersion = 41756CCA287835490033F672 /* IntermediateCoreDataModel.xcdatamodel */;
+			path = IntermediateCoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 41030888281E4AFC00172DAD /* Project object */;
 }
