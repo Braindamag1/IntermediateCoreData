@@ -23,4 +23,23 @@ struct CoreDataManager {
     var viewContext: NSManagedObjectContext {
         return persistentContainer.viewContext
     }
+    
+    var companies:[CDCompany] {
+        let fetchRequest = NSFetchRequest<CDCompany>(entityName: "CDCompany")
+        do {
+            let companies = try viewContext.fetch(fetchRequest)
+            return companies
+        } catch let fetchError {
+            print("Failed to fetch companies:",fetchError)
+            fatalError()
+        }
+    }
+    
+    var companyModelArray:[Company] {
+        return companies.map { company in
+            let name = company.name ?? ""
+            let date = company.date ?? Date()
+            return Company(name: name, founded: date)
+        }
+    }
 }

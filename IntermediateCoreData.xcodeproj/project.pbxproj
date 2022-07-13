@@ -245,7 +245,6 @@
 		410308FD281E568600172DAD /* Company */ = {
 			isa = PBXGroup;
 			children = (
-				414A5F0B281FD2F8008ED4FA /* Views */,
 				414A5F08281FD26F008ED4FA /* Model */,
 				414A5F07281FD268008ED4FA /* Controller */,
 			);
@@ -265,8 +264,6 @@
 			isa = PBXGroup;
 			children = (
 				413B2983285F444D0093A89B /* View */,
-				413B2982285F44480093A89B /* Model */,
-				413B2981285F44440093A89B /* ViewModel */,
 				413B2980285F443F0093A89B /* Controller */,
 			);
 			path = CreateCompany;
@@ -278,20 +275,6 @@
 				414A5F0C281FDC82008ED4FA /* CreateCompanyController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		413B2981285F44440093A89B /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		413B2982285F44480093A89B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		413B2983285F444D0093A89B /* View */ = {
@@ -316,13 +299,6 @@
 				414A5F09281FD279008ED4FA /* Company.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		414A5F0B281FD2F8008ED4FA /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		41756CCC287853D10033F672 /* Utility */ = {

@@ -58,6 +58,7 @@ extension CreateCompanyController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -120,7 +121,16 @@ extension CreateCompanyController {
             switch category {
             case .name(comanyName: let name):
                 if !name.isEmpty {
-                    navigationController?.popViewController(animated: true)
+                    let viewContext = CoreDataManager.shared.viewContext
+                    let comany = NSEntityDescription.insertNewObject(forEntityName: "CDCompany", into: viewContext)
+                    comany.setValue(name, forKey: "name")
+                    comany.setValue(Date(), forKey: "date")
+                    do {
+                        try viewContext.save()
+                        navigationController?.popViewController(animated: true)
+                    } catch let saveError{
+                        print("Fail to save comany",saveError)
+                    }
                 }
             }
         }
@@ -140,14 +150,5 @@ extension CreateCompanyController: CreateComanyInputeCellDelegate {
 
 //MARK: - Helper
 extension CreateCompanyController {
-    private func initializeCoreDataStack() {
-        let persistentContainer = NSPersistentContainer(name: "IntermediateCoreDataModel")
-        persistentContainer.loadPersistentStores { storeDescription, error in
-            if let error = error {
-                fatalError("Loading of store failed \(error)")
-            }
-        }
-        let context = persistentContainer.viewContext
-        let comany = NSEntityDescription.insertNewObject(forEntityName: "CDCompany", into: context)
-    }
+    
 }

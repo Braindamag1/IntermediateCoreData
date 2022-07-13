@@ -46,11 +46,14 @@ class CompanyController: UITableViewController {
     typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Company>
     private lazy var dataSource: DataSource = makeDataSource()
     let UIModel: CompanyControllerUIModel = .init()
-    var companies: [Company] = [
-        .init(name: "Apple", founded: Date()),
-        .init(name: "Facebook", founded: Date()),
-        .init(name: "Google", founded: Date())
-    ]
+    var companies: [Company] = [] {
+        didSet {
+            if oldValue != companies {
+                applySnapshot(with: companies)
+            }
+        }
+    }
+        
 }
 
 // MARK: - LifeCycle
@@ -68,6 +71,7 @@ extension CompanyController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        companies = CoreDataManager.shared.companyModelArray
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -169,6 +173,12 @@ extension CompanyController {
         dataSource.apply(snapshot,animatingDifferences: false)
     }
 
+    private func applySnapshot(with models: [Company]) {
+        var snapshot = Snapshot()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(models, toSection: .main)
+        dataSource.apply(snapshot,animatingDifferences: true)
+    }
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
