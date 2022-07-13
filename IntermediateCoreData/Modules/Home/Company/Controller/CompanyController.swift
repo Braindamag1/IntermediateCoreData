@@ -91,6 +91,7 @@ extension CompanyController {
 
 extension CompanyController {
     private func setupViews() {
+       
         setupNavigationBar(with: UIModel.title,
                            backgroundColor: UIModel.navgationBarBackgroundColor,
                            isLargeTitle: UIModel.isPreferLargeTitle,
@@ -155,7 +156,7 @@ extension CompanyController {
             var backgroundConfig = cell.backgroundConfiguration
             backgroundConfig?.backgroundColor = self.UIModel.cellColor
             var contentConfig = cell.defaultContentConfiguration()
-            contentConfig.attributedText = NSAttributedString(string: item.name,
+            contentConfig.attributedText = NSAttributedString(string: "\(item.name)",
                                                               attributes: [
                                                                   .font: self.UIModel.cellFont,
                                                                   .foregroundColor: self.UIModel.cellTextColor,
@@ -170,7 +171,7 @@ extension CompanyController {
         var snapshot = Snapshot()
         snapshot.appendSections([.main])
         snapshot.appendItems(companies,toSection: .main)
-        dataSource.apply(snapshot,animatingDifferences: false)
+        dataSource.apply(snapshot,animatingDifferences: true)
     }
 
     private func applySnapshot(with models: [Company]) {

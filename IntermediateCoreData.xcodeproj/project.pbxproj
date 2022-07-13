@@ -43,6 +43,7 @@
 		414A5F0D281FDC82008ED4FA /* CreateCompanyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414A5F0C281FDC82008ED4FA /* CreateCompanyController.swift */; };
 		41756CCB287835490033F672 /* IntermediateCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 41756CC9287835490033F672 /* IntermediateCoreDataModel.xcdatamodeld */; };
 		41756CCE287853EC0033F672 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41756CCD287853EC0033F672 /* CoreDataManager.swift */; };
+		41B204B5287EC42900D38762 /* CreateCompanyDatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B204B4287EC42900D38762 /* CreateCompanyDatePickerCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,7 @@
 		414A5F0C281FDC82008ED4FA /* CreateCompanyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCompanyController.swift; sourceTree = "<group>"; };
 		41756CCA287835490033F672 /* IntermediateCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IntermediateCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		41756CCD287853EC0033F672 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		41B204B4287EC42900D38762 /* CreateCompanyDatePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCompanyDatePickerCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				413B2984285F4F010093A89B /* CreateComanyInputeCell.swift */,
+				41B204B4287EC42900D38762 /* CreateCompanyDatePickerCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				410308F7281E505D00172DAD /* PWCFontHelper.swift in Sources */,
 				410308EA281E505D00172DAD /* PWCImageViewHelpr.swift in Sources */,
 				410308FC281E534B00172DAD /* LightContentNavigationController.swift in Sources */,
+				41B204B5287EC42900D38762 /* CreateCompanyDatePickerCell.swift in Sources */,
 				41030894281E4AFC00172DAD /* AppDelegate.swift in Sources */,
 				410308F3281E505D00172DAD /* PWCShadowHelper.swift in Sources */,
 				41756CCE287853EC0033F672 /* CoreDataManager.swift in Sources */,

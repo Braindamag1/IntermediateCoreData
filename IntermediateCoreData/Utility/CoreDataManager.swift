@@ -39,7 +39,7 @@ struct CoreDataManager {
         let newDate = date as NSDate
         let fetchRequest = NSFetchRequest<CDCompany>(entityName: "CDCompany")
         let namePredicate = NSPredicate(format: "name == %@", name)
-        let datePredicate = NSPredicate(format: "date == %@", newDate)
+        let datePredicate = NSPredicate(format: "founded == %@", newDate)
         fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [namePredicate,datePredicate])
         do {
             let objects = try viewContext.fetch(fetchRequest)
@@ -54,7 +54,7 @@ struct CoreDataManager {
     var companyModelArray:[Company] {
         return companies.map { company in
             let name = company.name ?? ""
-            let date = company.date ?? Date()
+            let date = company.founded ?? Date()
             return Company(name: name, founded: date)
         }
     }
