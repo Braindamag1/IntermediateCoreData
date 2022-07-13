@@ -35,7 +35,16 @@ class CreateCompanyController: UITableViewController {
     typealias DataSource = UITableViewDiffableDataSource<Section,Category>
     typealias Snapshot = NSDiffableDataSourceSnapshot<Section,Category>
     // MARK: - Model
-
+    var editingCompany: Company? = nil {
+        didSet {
+            if let editingCompany = editingCompany {
+                modelArray = [
+                    .name(comanyName: editingCompany.name)
+                ]
+                applyInitialSnapshot()
+            }
+        }
+    }
     let UIModel: CreateCompanyControllerUIModel = .init()
     private lazy var dataSource = makeDataSource()
     private var modelArray: [Category] = [
@@ -54,6 +63,9 @@ extension CreateCompanyController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if let _ = editingCompany {
+            navigationItem.title = "Edit Company"
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -122,9 +134,14 @@ extension CreateCompanyController {
             case .name(comanyName: let name):
                 if !name.isEmpty {
                     let viewContext = CoreDataManager.shared.viewContext
-                    let comany = NSEntityDescription.insertNewObject(forEntityName: "CDCompany", into: viewContext)
-                    comany.setValue(name, forKey: "name")
-                    comany.setValue(Date(), forKey: "date")
+                    if let editingcompany = editingCompany {
+                        let company = CoreDataManager.shared.getSingleCompany(with: editingcompany.name, date: editingcompany.founded)
+                        company.setValue(name, forKey: "name")
+                    } else {
+                        let comany = NSEntityDescription.insertNewObject(forEntityName: "CDCompany", into: viewContext)
+                        comany.setValue(name, forKey: "name")
+                        comany.setValue(Date(), forKey: "date")
+                    }
                     do {
                         try viewContext.save()
                         navigationController?.popViewController(animated: true)

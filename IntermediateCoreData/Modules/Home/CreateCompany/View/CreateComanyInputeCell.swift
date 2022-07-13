@@ -109,6 +109,9 @@ extension CreateComanyInputeCell {
             .font: UIModel.cellFont,
             .foregroundColor: UIColor.gray
         ])
+        if case let CreateCompanyController.Category.name(comanyName: companyName) = model {
+            infoTextField.text = companyName
+        }
         self.category = model
     }
 }

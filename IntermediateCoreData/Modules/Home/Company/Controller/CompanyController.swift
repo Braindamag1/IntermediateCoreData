@@ -204,10 +204,14 @@ extension CompanyController {
             }
             
         }
-        let editAction = UITableViewRowAction(style: .normal, title: "Edit") { _, indexPath in
-            
-        }
+        let editAction = UITableViewRowAction(style: .normal, title: "Edit",handler: editCompany(with:indexPath:))
         return [deleteAction,editAction]
+    }
+    
+    private func editCompany(with action: UITableViewRowAction,indexPath: IndexPath) {
+        let edit = CreateCompanyController()
+        edit.editingCompany = companies[indexPath.row]
+        navigationController?.pushViewController(edit, animated: true)
     }
 }
 
