@@ -35,6 +35,22 @@ struct CoreDataManager {
         }
     }
     
+    func getSingleCompany(with name: String, date:Date)-> CDCompany {
+        let newDate = date as NSDate
+        let fetchRequest = NSFetchRequest<CDCompany>(entityName: "CDCompany")
+        let namePredicate = NSPredicate(format: "name == %@", name)
+        let datePredicate = NSPredicate(format: "date == %@", newDate)
+        fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [namePredicate,datePredicate])
+        do {
+            let objects = try viewContext.fetch(fetchRequest)
+            assert(objects.count == 1)
+            return objects.first!
+        } catch let fetchError{
+            print("Fail to fetch single company",fetchError)
+        }
+        fatalError()
+    }
+    
     var companyModelArray:[Company] {
         return companies.map { company in
             let name = company.name ?? ""
